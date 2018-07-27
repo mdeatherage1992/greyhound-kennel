@@ -1,5 +1,5 @@
 class Kennel < ActiveRecord::Base
-  has_many :tweets
+  has_many :greyhounds
 
   has_secure_password
 

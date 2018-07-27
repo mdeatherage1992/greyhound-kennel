@@ -1,0 +1,7 @@
+<h1> Your Kennel </h1>
+<%= @kennel.name %>
+<% @kennel.greyhounds.each do |greyhound| %>
+<br>
+<%= greyhound.name %>
+<br>
+<% end %>

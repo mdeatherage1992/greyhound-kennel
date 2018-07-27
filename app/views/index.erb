@@ -1,0 +1,13 @@
+<h2>Welcome to the Greyhound Kennel Database!</h2>
+<p> Please Sign in</p>
+
+<% if logged_in? %>
+<a href="/greyhounds/new"> Create Greyhound for your Kennel</a>
+<href="/logout"> Log Out </a>
+<p>Welcome, <%=current_kennel.name%></p>
+
+<% else %>
+
+<a href="/signup">Sign Up</a>
+<a href="/login"> Sign In </a>
+<% end %>

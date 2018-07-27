@@ -1,0 +1,7 @@
+<h4><%= @greyhound.name %>
+  <form method="post" action='/greyhounds/<%=@greyhound.id%>/delete'>
+    <input id="hidden" type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Greyhound">
+  </form>
+
+  <a href="/tweets/<%=@tweet.id%>/edit">Edit Tweet</a>

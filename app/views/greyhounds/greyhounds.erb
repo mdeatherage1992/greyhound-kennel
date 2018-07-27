@@ -1,0 +1,8 @@
+<h1> Welcome, <%= current_kennel.name %> ! </h1>
+  <h2> Your Hounds </h2>
+
+  <% @greyhounds.each do |greyhound| %>
+  <br>
+
+  <%= greyhound.name %><br>
+  <% end %>

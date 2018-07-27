@@ -1,0 +1,7 @@
+<h1> Edit Your Greyhound </h1>
+
+<form method="post" action='/greyhounds/<%=@greyhound.id%>'>
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <input type="text" name="name" value="<%= @greyhound.name %>">
+  <input type="submit" value="submit">
+</form>

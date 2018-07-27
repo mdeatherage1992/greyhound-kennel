@@ -3,4 +3,12 @@ class Kennel < ActiveRecord::Base
 
   has_secure_password
 
+  def slug
+  name.downcase.gsub(" ","-")
+end
+
+def self.find_by_slug(slug)
+  Kennel.all.find{|kennel| user.slug == slug}
+end
+
 end

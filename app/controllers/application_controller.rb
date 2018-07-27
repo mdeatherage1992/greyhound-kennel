@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_kennel
-      @current_kennel ||= User.find_by(id: session[:kennel_id]) if session[:kennel_id]
+      @current_kennel ||= Kennel.find_by(id: session[:kennel_id]) if session[:kennel_id]
     end
 
 

@@ -20,7 +20,7 @@ post '/signup' do
     @kennel = Kennel.new(:name => params[:name], :email => params[:email], :password => params[:password])
     @kennel.save
     session[:kennel_id] = @kennel.id
-    redirect to '/kennels'
+    redirect to '/greyhounds'
   end
 end
 
@@ -45,7 +45,7 @@ end
 get '/logout' do
   if logged_in?
     session.destroy
-    redirect to '/login'
+    redirect to '/'
   else
     redirect to '/'
     end

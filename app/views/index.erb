@@ -2,9 +2,12 @@
 <p> Please Sign in</p>
 
 <% if logged_in? %>
-<a href="/greyhounds/new"> Create Greyhound for your Kennel</a>
-<href="/logout"> Log Out </a>
-<p>Welcome, <%=current_kennel.name%></p>
+<h2>Welcome, <%=current_kennel.name%></h2>
+<a href="/greyhounds/new"> Create Greyhound for your Kennel</a><br>
+<br>
+<br>
+<a href="/logout"> Log Out </a>
+
 
 <% else %>
 

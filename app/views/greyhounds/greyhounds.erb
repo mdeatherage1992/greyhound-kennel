@@ -1,8 +1,15 @@
 <h1> Welcome, <%= current_kennel.name %> ! </h1>
   <h2> Your Hounds </h2>
+  <% if @greyhounds.length < 1 %>
+  <p> Your Kennel is Empty!!</p><br><br>
+  <a href="/create_greyhound">Add a Greyhound!</a>
+
+  <% else %>
 
   <% @greyhounds.each do |greyhound| %>
   <br>
 
   <%= greyhound.name %><br>
+  <a href="/greyhounds/create_greyhound">Got Another Greyhound? Add Another!</a>
+  <% end %>
   <% end %>

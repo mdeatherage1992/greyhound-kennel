@@ -1,5 +1,4 @@
 <h2>Welcome to the Greyhound Kennel Database!</h2>
-<p> Please Sign in</p>
 
 <% if logged_in? %>
 <h2>Welcome, <%=current_kennel.name%></h2>
@@ -10,7 +9,7 @@
 
 
 <% else %>
-
+<p> Please Sign in</p>
 <a href="/signup">Sign Up</a>
 <a href="/login"> Sign In </a>
 <% end %>

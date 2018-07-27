@@ -2,7 +2,7 @@
   <h2> Your Hounds </h2>
   <% if @greyhounds.length < 1 %>
   <p> Your Kennel is Empty!!</p><br><br>
-  <a href="/create_greyhound">Add a Greyhound!</a>
+  <a href="/greyhounds/new">Add a Greyhound!</a>
 
   <% else %>
 
@@ -10,6 +10,6 @@
   <br>
 
   <%= greyhound.name %><br>
-  <a href="/greyhounds/create_greyhound">Got Another Greyhound? Add Another!</a>
+  <a href="/greyhounds/new">Got Another Greyhound? Add Another!</a>
   <% end %>
   <% end %>

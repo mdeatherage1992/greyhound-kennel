@@ -8,7 +8,7 @@ class Kennel < ActiveRecord::Base
 end
 
 def self.find_by_slug(slug)
-  Kennel.all.find{|kennel| user.slug == slug}
+  Kennel.all.find{|kennel| kennel.slug == slug}
 end
 
 end

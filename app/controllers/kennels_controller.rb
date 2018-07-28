@@ -1,7 +1,8 @@
 class KennelsController < ApplicationController
 
-  get '/kennels/:slug' do
-  @user = User.find_by_slug(params[:slug])
+  get '/kennels/:id' do
+  @kennel = Kennel.find_by_id(params[:id])
+  binding.pry
   erb :'kennels/show'
 end
 
@@ -20,7 +21,7 @@ post '/signup' do
     @kennel = Kennel.new(:name => params[:name], :email => params[:email], :password => params[:password])
     @kennel.save
     session[:kennel_id] = @kennel.id
-    redirect to '/greyhounds'
+    redirect to '/kennels/show'
   end
 end
 
@@ -28,7 +29,7 @@ get '/login' do
   if !logged_in?
     erb :'kennels/login'
   else
-    redirect to '/greyhounds'
+    redirect to '/kennels/show'
   end
 end
 

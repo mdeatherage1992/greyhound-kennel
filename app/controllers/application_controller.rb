@@ -15,13 +15,19 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 
-    def logged_in?
-      !!current_kennel
+    def redirect_if_not_logged_in
+    if !logged_in?
+      redirect "/login?error=You have to be logged in to do that"
     end
+  end
 
-    def current_kennel
-      @current_kennel ||= Kennel.find_by(id: session[:kennel_id]) if session[:kennel_id]
-    end
+  def logged_in?
+    !!session[:kennel_id]
+  end
+
+  def current_kennel
+    Kennel.find(session[:kennel_id])
+  end
 
 
   end

@@ -2,9 +2,9 @@
 <p>Favorite Food:<%= @greyhound.food %></p><br>
 <p>Fastest Time:<%= @greyhound.time %></p><br>
 <p>Racing Grade:<%= @greyhound.grade %></p><br><br>
-  <form method="post" action='/greyhounds/<%=@greyhound.id%>/delete'>
+  <form method="post" action='/greyhounds/<%=@greyhound.kennel_id%>/delete'>
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Greyhound">
   </form>
 
-  <a href="/tweets/<%=@tweet.id%>/edit">Edit Greyhound</a>
+  <a href="/greyhounds/<%=@greyhound.kennel_id%>/edit">Edit Greyhound</a>

@@ -59,14 +59,15 @@ end
   patch '/greyhounds/:id' do
     if logged_in?
       if params[:name] == ""
-        redirect "/greyhounds/#{params[:id]}/edit"
+        redirect "/greyhounds/#{params[:kennel_id]}/edit"
       else
         @greyhound = Greyhound.find_by_id(params[:id])
-        if @greyhound && @greyhound.user == current_user
-          if @greyhound.update(name: params[:name])
-            redirect "/greyhounds/#{@greyhound.id}"
+        if @greyhound && @greyhound.kennel == current_kennel
+          if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
+            @greyhound.save
+            redirect "/greyhound/#{@greyhound.id}"
           else
-            redirect "/greyhounds/#{@greyhound.id}/edit"
+            redirect "/greyhounds/#{@greyhound.kennel_id}/edit"
           end
         else
           redirect '/greyhounds'

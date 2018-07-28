@@ -17,16 +17,16 @@ end
     end
   end
 
-  post '/greyhound' do
+  post '/greyhounds' do
     if logged_in?
       if params[:name] == ""
         redirect '/greyhounds/new'
       else
-        @greyhound = current_user.tweets.build(name: params[:name])
+        @greyhound = current_kennel.greyhounds.build(name: params[:name], food: params[:food], time: params[:time], grade: params[:grade])
         if @greyhound.save
-          redirect "/greyhounds/#{@greyhound.id}"
+          redirect "/greyhounds"
         else
-          redirect "greyhound/new"
+          redirect "greyhounds/new"
         end
       end
     else

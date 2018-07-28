@@ -1,4 +1,7 @@
-<h4><%= @greyhound.name %>
+<h4><%= @greyhound.name %></h4>
+<p>Favorite Food:<%= @greyhound.food %></p><br>
+<p>Fastest Time:<%= @greyhound.time %></p><br>
+<p>Racing Grade:<%= @greyhound.grade %></p><br><br>
   <form method="post" action='/greyhounds/<%=@greyhound.id%>/delete'>
     <input id="hidden" type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete Greyhound">

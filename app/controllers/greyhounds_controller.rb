@@ -46,7 +46,7 @@ end
   get '/greyhounds/:id/edit' do
     if logged_in?
       @greyhound = Greyhound.find_by_id(params[:id])
-      if @greyhound && @Greyhound.kennel == current_kennel
+      if @greyhound && @greyhound.kennel == current_kennel
         erb :'greyhounds/edit_greyhound'
       else
         redirect '/greyhounds'

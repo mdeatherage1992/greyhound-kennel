@@ -2,7 +2,6 @@ class KennelsController < ApplicationController
 
   get '/kennels/:id' do
   @kennel = Kennel.find_by_id(params[:id])
-  binding.pry
   erb :'kennels/show'
 end
 

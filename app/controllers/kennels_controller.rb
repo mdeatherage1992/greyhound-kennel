@@ -20,7 +20,7 @@ post '/signup' do
     @kennel = Kennel.new(:name => params[:name], :email => params[:email], :password => params[:password])
     @kennel.save
     session[:kennel_id] = @kennel.id
-    redirect to '/kennels/show'
+    redirect to '/greyhounds'
   end
 end
 

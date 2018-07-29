@@ -46,7 +46,7 @@ end
   get '/greyhounds/:id/edit' do
     if logged_in?
       @greyhound = Greyhound.find_by_id(params[:id])
-      if @greyhound && @greyhound.kennel == current_kennel
+      if @greyhound.kennel == current_kennel
         erb :'greyhounds/edit_greyhound'
       else
         redirect '/greyhounds'
@@ -57,13 +57,14 @@ end
 end
 
   patch '/greyhounds/:id' do
+    binding.pry
     if logged_in?
       if params[:name] == ""
         redirect "/greyhounds/#{params[:kennel_id]}/edit"
       else
         @greyhound = Greyhound.find_by_id(params[:id])
         if @greyhound && @greyhound.kennel == current_kennel
-          if @greyhound.update(params.select{|k|k =="name" || k =="food" || k== "time" || k == "grade"})# if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
+          if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
             @greyhound.save
             redirect "/greyhound/#{@greyhound.kennel_id}"
           else

@@ -2,7 +2,7 @@ class KennelsController < ApplicationController
 
   get '/kennels/:id' do
   @kennel = Kennel.find_by_id(params[:id])
-  erb :'kennels/show'
+  erb :'/greyhounds'
 end
 
 get '/signup' do

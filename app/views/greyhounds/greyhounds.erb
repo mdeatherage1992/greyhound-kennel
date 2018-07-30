@@ -8,13 +8,12 @@
   <% else %>
 
   <% @greyhounds.each do |greyhound| %>
-  <br>
   <% if greyhound.kennel == current_kennel %>
-  <h4>NAME: <%= greyhound.name %></h4><br><br>
+  <h4>NAME: <%= greyhound.name %></h4><br>
   <p>Racing Kennel: <%= greyhound.kennel.name %><br></p>
   <p>Favorite Food:  <%= greyhound.food %><br></p>
   <p>Best Race Time:  <%= greyhound.time %><br></p>
-  <p>Racing Grade:  <%= greyhound.grade %></p><br><br>
+  <p>Racing Grade:  <%= greyhound.grade %></p><br>
   <a href="/greyhounds/<%=greyhound.id%>/edit">Edit Your Hound!</a><br><br>
   <%end %>
   <% end %>

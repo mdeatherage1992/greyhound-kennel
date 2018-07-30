@@ -54,26 +54,41 @@ end
 
   patch '/greyhounds/:id' do
     if logged_in?
-      if params[:name] == ""
-        redirect "/greyhounds/#{params[:id]}/edit"
-      else
-        @greyhound = Greyhound.find_by_id(params[:id])
-        binding.pry
-        if @greyhound && @greyhound.kennel.id == current_kennel.id
-          if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
-            @greyhound.save
-            redirect "/greyhound/#{@greyhound.id}"
-          else
-            redirect "/greyhounds/#{@greyhound.id}/edit"
-          end
-        else
-          redirect '/greyhounds'
-        end
-      end
-    else
-      redirect '/login'
+    @greyhound = Greyhound.find_by_id(params[:id])
+    @greyhound.name = params[:name]
+    @greyhound.food = params[:food]
+    @greyhound.time = params[:time]
+    @greyhound.grade = params[:grade]
+    @greyhound.save
+    redirect("/greyhound/#{@greyhound.id}")
+  else
+    redirect '/login'
     end
   end
+
+
+
+  #   if logged_in?
+  #     if !params[:name] == ""
+  #       redirect "/greyhounds/#{params[:id]}/edit"
+  #     else
+  #       @greyhound = Greyhound.find_by_id(params[:id])
+  #       binding.pry
+  #       if @greyhound && @greyhound.kennel.id == current_kennel.id
+  #         if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
+  #           @greyhound.save
+  #           redirect "/greyhound/#{@greyhound.id}"
+  #         else
+  #           redirect "/greyhounds/#{@greyhound.id}/edit"
+  #         end
+  #       else
+  #         redirect '/greyhounds'
+  #       end
+  #     end
+  #   else
+  #     redirect '/login'
+  #   end
+  # end
 
   delete '/greyhounds/:id/delete' do
     if logged_in?

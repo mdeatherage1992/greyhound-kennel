@@ -8,3 +8,8 @@
   Racing Grade<input type="text" name="food" value="<%= @greyhound.grade %>"><br>
   <input type="submit" value="submit">
 </form>
+
+<form method="post" action='/greyhounds/<%=@greyhound.id%>/delete'>
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Greyhound"><br><br>
+</form>

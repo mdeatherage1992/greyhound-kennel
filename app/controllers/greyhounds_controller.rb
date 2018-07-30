@@ -59,12 +59,12 @@ end
       else
         @greyhound = Greyhound.find_by_id(params[:id])
         if @greyhound && @greyhound.kennel.id == current_kennel.id
-            @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
+          if @greyhound.update(:name => params[:name], :time => params[:time],:food => params[:food],:grade => params[:grade])
             @greyhound.save
             redirect "/greyhound/#{@greyhound.id}"
-          # else
-          #   redirect "/greyhounds/#{@greyhound.id}/edit"
-          # end
+          else
+            redirect "/greyhounds/#{@greyhound.id}/edit"
+          end
         else
           redirect '/greyhounds'
         end

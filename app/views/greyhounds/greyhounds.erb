@@ -1,7 +1,7 @@
 <h1> Welcome, <%= current_kennel.name %> ! </h1>
   <h2> Your Hounds </h2>
 
-  <% if @greyhounds.length < 1 %>
+  <% if current_kennel.greyhounds.length < 1 %>
   <p> Your Kennel is Empty!!</p><br><br>
   <a href="/greyhounds/new">Add a Greyhound!</a>
 

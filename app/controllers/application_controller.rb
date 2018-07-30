@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_kennel
-    Kennel.find(session[:kennel_id])
+    Kennel.find(session[:kennel_id]) if session[:kennel_id]
     end
 
 

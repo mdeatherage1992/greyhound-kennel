@@ -1,4 +1,4 @@
-<h1> Welcome, <%= current_kennel.name %> ! </h1>
+<h1> Welcome, <%= current_kennel.name %> Kennel ! </h1>
   <h2> Your Hounds </h2>
 
   <% if current_kennel.greyhounds.length < 1 %>
@@ -9,7 +9,7 @@
 
   <% @greyhounds.each do |greyhound| %>
   <% if greyhound.kennel == current_kennel %>
-  <h4>NAME: <%= greyhound.name %></h4><br>
+  <h3>Greyhound Name: <%= greyhound.name %></h3><br>
   <p>Racing Kennel: <%= greyhound.kennel.name %><br></p>
   <p>Favorite Food:  <%= greyhound.food %><br></p>
   <p>Best Race Time:  <%= greyhound.time %><br></p>
@@ -18,6 +18,6 @@
   <%end %>
   <% end %>
   <br><br>
-  <a href="/greyhounds/new"> Add A Greyhound!</a><br><br><br>
+  <a href="/greyhounds/new"> Add A Greyhound!</a><br><br>
   <a href="/logout">Logout!</a>
   <% end %>

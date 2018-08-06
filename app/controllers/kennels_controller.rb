@@ -38,9 +38,30 @@ post '/login' do
     session[:kennel_id] = kennel.id
     redirect to "/greyhounds"
   else
-    redirect to '/signup'
+    redirect to '/error'
   end
 end
+
+post '/error' do
+  kennel = Kennel.find_by(:name => params[:name])
+  if kennel && kennel.authenticate(params[:password])
+    session[:kennel_id] = kennel.id
+    redirect to "/greyhounds"
+  else
+    redirect to '/error'
+  end
+end
+
+
+get '/error' do
+  if !logged_in?
+    erb :'kennels/error'
+  else
+    redirect to '/kennels/show'
+  end
+end
+
+
 
 get '/logout' do
   if logged_in?

@@ -14,7 +14,7 @@ get '/signup' do
 end
 
 post '/signup' do
-  if params[:name] == "" || params[:email] == "" || params[:password] == ""
+  if params[:name] == "" || params[:email] == "" || params[:password] == "" || Kennel.find_by(:name => params[:name])
     redirect to '/signup'
   else
     @kennel = Kennel.new(:name => params[:name], :email => params[:email], :password => params[:password])
